@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>公演チケット予約</title>
+</head>
+<body>
+予約は完了しました。
+<h1>予約番号<span th:text="${reservationBean.ticketReservationId}"></span></h1>
+<table>
+    <tr>
+        <th>チケットコード</th>
+        <td><span th:text="${reservationBean.ticketCode}"></span></td>
+    </tr>
+    <tr>
+        <th>チケット枚数</th>
+        <td><span th:text="${reservationBean.reservedTicketNum}"></span></td>
+    </tr>
+</table>
+</body>
+</html>

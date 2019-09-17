@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>公演一覧</title>
+</head>
+<body>
+<span th:unless="${messages == null or messages.empty}"  th:text="messages">requestedTicketNum error</span>
+<table>
+    <tr><th>チケット名</th><th>チケット価格</th><th>予約状況</th><th>予約</th></tr>
+
+    <tr th:each="ticketBean:${ticketBeans.list}">
+        <td th:text="${ticketBean.ticketName}"></td>
+        <td th:text="${ticketBean.ticketUnitPrice}"></td>
+        <td th:text="${ticketBean.currentTicketCapacity.status()}"></td>
+        <td><a th:href="@{/reserve(programCode=${programCode},holdingId=${holdingId},ticketCode=${ticketBean.ticketCode})}">チケット予約へ</a></td>
+    </tr>
+</table>
+
+
+</body>
+</html>

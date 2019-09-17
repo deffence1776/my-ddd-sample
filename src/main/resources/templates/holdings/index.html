@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>公演一覧</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>開催日</th>
+        <th>開始時間</th>
+        <th>会場</th>
+        <th>チケット購入へ</th>
+    </tr>
+    <tr th:each="holding:${programHoldingBeans.list}">
+        <td th:text="${holding.holdingSchedule.show().day}"></td>
+        <td th:text="${holding.holdingSchedule.show().startTime}"></td>
+        <td th:text="${holding.venue}"></td>
+        <td ><a th:href="@{/tickets(programCode=${programCode},holdingId=${holding.holdingId})}">チケット購入</a></td>
+    </tr>
+</table>
+
+</body>
+</html>

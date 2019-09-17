@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>公演チケット予約</title>
+</head>
+<body>
+<span th:unless="${reservationCheckResult == null}"  th:text="${reservationCheckResult.errorMessages}">requestedTicketNum error</span>
+<form action="#" th:action="@{/reserve/doReserve(programCode=${programCode},holdingId=${holdingId},ticketCode=${ticketCode})}" th:object="${ticketRequestForm}" method="post">
+<table>
+    <tr>
+        <th>チケット名</th>
+        <td ><span th:text="${ticketBean.ticketName}"></span></td>
+    </tr>
+    <tr>
+        <th><label for="ticketNum">チケット枚数</label></th>
+        <td ><input  id="ticketNum" type="text"  th:field="*{requestedTicketNum}"  >
+            <span th:if="${#fields.hasErrors('requestedTicketNum')}" th:errors="*{requestedTicketNum}">requestedTicketNum error</span></td>
+    <tr>
+        <td ><input type="submit" value="送信"></td>
+    </tr>
+</table>
+</form>
+</body>
+</html>

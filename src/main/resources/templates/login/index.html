@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>ログイン画面</title>
+</head>
+<body>
+<form action="#" th:action="@{/login/doAuthenticate}" th:object="${loginForm}" method="post">
+
+    <label for="username">ユーザー名</label><input id="username" type="text" th:field="*{username}"><br>
+    <label for="password">パスワード</label><input id="password" type="password" th:field="*{password}"><br>
+    <input type="submit" value="ログイン"/>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>公演一覧</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>プログラムコード</th>
+        <th>プログラム名</th>
+        <th>プログラム解説</th>
+        <th>公演</th>
+    </tr>
+    <tr th:each="programBean:${programBeans.list}">
+        <td th:text="${programBean.programCode}"></td>
+        <td th:text="${programBean.programName}"></td>
+        <td th:text="${programBean.programDescription}"></td>
+        <td>
+            <span th:if="${programBean.runningPeriod.status().isFinished()}">
+                <span th:text="${programBean.runningPeriod.status().message()}"></span>
+            </span>
+             <span th:unless="${programBean.runningPeriod.status().isFinished()}">
+                <a th:href="@{/holdings(programCode=${programBean.programCode})}">開催スケジュール</a>
+             </span>
+
+        </td>
+    </tr>
+</table>
+
+
+</body>
+</html>
