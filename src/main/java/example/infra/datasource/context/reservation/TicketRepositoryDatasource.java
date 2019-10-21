@@ -11,9 +11,9 @@ import example.domain.values.tickets.TicketCode;
 @Repository
 class TicketRepositoryDatasource implements TicketRepository {
 
-    TicketMapper ticketMapper;
+    example.infra.datasource.context.reservation.TicketMapper ticketMapper;
 
-    public TicketRepositoryDatasource(TicketMapper ticketMapper) {
+    public TicketRepositoryDatasource(example.infra.datasource.context.reservation.TicketMapper ticketMapper) {
         this.ticketMapper = ticketMapper;
     }
 

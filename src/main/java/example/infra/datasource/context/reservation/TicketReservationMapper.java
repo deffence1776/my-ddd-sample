@@ -38,7 +38,7 @@ interface TicketReservationMapper {
                     " #{theaterUsername.value}" +
                     ")")
     @SelectKey(before = true, keyProperty = "reservationId", statement = "SELECT NEXTVAL('reservation_id_seq')", resultType = Long.class)
-    int register(ReservationDataMapping reservationDataMapping);
+    int register(example.infra.datasource.context.reservation.ReservationDataMapping reservationDataMapping);
 
 
 }
